@@ -31,15 +31,10 @@ function loadFortunes() {
  */
 function filterFortunes(fortunes, category) {
   // TODO: BEGIN STUDENT ASSIGNMENT
-  // TODO: If there is no category, return the original array
-  true; // replace this with your code here
-  // TODO: END STUDENT ASSIGNMENT
-
-  // TODO: BEGIN STUDENT ASSIGNMENT
-  // TODO: Create an array of fortunes matching category
-  true; // replace this with your code here
-  // TODO: END STUDENT ASSIGNMENT
-  return fortunes;
+  if (!category) {
+    return fortunes;
+  }
+  return fortunes.filter(fortune => fortune.category === category);
 }
 
 /**
@@ -49,11 +44,8 @@ function filterFortunes(fortunes, category) {
  * @returns {string} The text of a randomly selected fortune.
  */
 function getRandomFortune(fortunes) {
-  // TODO: BEGIN STUDENT ASSIGNMENT
-  // TODO: msg must be changed to be a random fortune
-  const msg = `Get a random fortune from the ${fortunes.length} fortunes`;  // replace this with your code here
-  // TODO: END STUDENT ASSIGNMENT
-  return msg;
+  const randomIndex = Math.floor(Math.random() * fortunes.length);
+  return fortunes[randomIndex].text;
 }
 
 /**
@@ -85,8 +77,6 @@ export function fortunateCow(category) {
 
   // TODO: BEGIN STUDENT ASSIGNMENT
   // TODO: Replace msg by calling the say function
-  const fortuneMessage = `${fortune} and then a cow using its say() function`;  // replace this with your code here
+  return say({ text: fortune });
   // TODO: END STUDENT ASSIGNMENT
-  return fortuneMessage;
-
 }
